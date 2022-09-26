@@ -40,6 +40,4 @@ const todoList = () => {
     toDisplayableList,
   };
 };
-let hello = "hello";
-hello.toLowerCase();
 module.exports = todoList;
