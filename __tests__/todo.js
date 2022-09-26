@@ -4,14 +4,21 @@ const todoList = require("../todo");
 const { all, add, markAsComplete } = todoList();
 
 describe("Test the TodoList", () => {
+  beforeAll(()=>{
+    add({
+      title : "zero Task",
+      dueDate: new Date().toLocaleTimeString("en-CA"),
+      completed : false,
+    })
+  })
   test("add a new todo", () => {
-    expect(all.length).toBe(0);
+    let len = all.length;
     add({
       title: "First Task",
       dueDate: new Date().toLocaleTimeString("en-CA"),
       completed : false,
     });
-    expect(all.length).toBe(1);
+    expect(all.length).toBe(len + 1);
   });
 
   test("mark todo as a completed", () => {
